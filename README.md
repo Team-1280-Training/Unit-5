@@ -1,7 +1,7 @@
 # Unit 5: Methods
 
 ## Introduction
-**Methods**, or **functions**, are blocks of code that can be executed with a single statement. They typically perform a specific action, and allow us to define code once but easily use it many times. \
+**Methods**, also called **functions** or **procedures**, are blocks of code that can be executed with a single statement. They typically perform a specific action, and allow us to define code once but easily use it many times. \
 Programs **call** or **invoke** methods to run the code inside.
 
 Methods may take in values called **arguments** as input, which assigns them to **parameters**, variables inside the method which get arguments. \
