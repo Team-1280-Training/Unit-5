@@ -22,6 +22,7 @@ Methods may output, or **return**, a single value to the program at the end of t
     - [>Exercise: Factorial Sum](#exercise-factorial-sum)
 - [Recap](#recap)
     - [Keyboard Shortcuts](#keyboard-shortcuts)
+- [>>Project: Movie Recommendation](#project-movie-recommendation)
 
 [Feedback](#feedback) \
 [License](#license)
@@ -507,8 +508,8 @@ Explanations:
 | - | - |
 | `Ctrl`+`LeftClick` | Follow link or path in *Terminal* |
 
-## >>Project: Movie Reccommendation
-Make a program that collects information based on user input and uses it to make a personalized movie reccommendation.
+## >>Project: Movie Recommendation
+Make a program that collects information based on user input and uses it to make a personalized movie recommendation.
 [`Information.java`](Information.java)
 
 Create procedures in your program to retrieve the user's:
@@ -517,10 +518,10 @@ Create procedures in your program to retrieve the user's:
 
 Add a procedure of your own to get additional info that you find important. (cats or dogs? early bird or night owl? favorite candy?)
 For some procedures, make sure the user's input is valid! Discard invalid inputs and continue to prompt them until a valid input is provided. Note that in some cases, you won't be able to prevent the program crashing from an invalid input (such as the user entering something other than an integer when prompted for `age`.) \
-Then, make a procedure that greets the user personally and reccommends them a movie of your choice based on the information they provided.
+Then, make a procedure that greets the user personally and recommends them a movie of your choice based on the information they provided.
 
-In your `main` method, call these operations to prompt the user for their information and give them a movie reccommendation. \
-*Note: you should not create more than one `Scanner` in this program!*
+In your `main` method, call these operations to prompt the user for their information and give them a movie recommendation. \
+*Note: you should not create more than one `Scanner` in this program!* You may have to 'pass it around'.
 
 ## Feedback
 Please provide feedback if you have any.
