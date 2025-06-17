@@ -130,9 +130,45 @@ Methods should be a single, discrete action that is describable in a single phra
 
 ## >Exercise: Book Finder
 You're the sole librarian of a vast library with 4 whole shelves and a singular book on each shelf. In fact, visitors are having such a hard time finding the book they're looking for that you need a way for them to check which book is on what shelf through the library computer (or risk getting lost in your maze of a library!)
+
+[`BookFinder.java`](BookFinder.java)
 The four books you have are `The Three Body Problem` (Cixin Liu) on shelf 1, `The Dark Forest` (Cixin Liu) on shelf 2, `Death's End` (Cixin Liu) on shelf 3, and `The Wandering Earth` (Cixin Liu) on shelf 4.
 1. Create a method that takes in the shelf number as a parameter and returns the title of the book on that shelf.
 2. Declare the `main()` method and in it, call your method twice and print out each result; once for shelf 1, then for shelf 3.
+
+<details><summary>Solution Code</summary>
+
+```java
+public class BookFinder {
+
+    static String findBook(int shelfNumber) {
+        switch (shelfNumber) {
+            case 1:
+                return "The Three Body Problem";
+            case 2:
+                return "The Dark Forest";
+            case 3:
+                return "Death's End";
+            case 4:
+                return "The Wandering Earth";
+            default:
+                return "Could not find your book!";
+        }
+    }
+    public static void main(String[] args) {
+        String titleOne = findBook(1);
+        String titleThree = findBook(3);
+        System.out.println("Shelf one has " + titleOne);
+        System.out.println("Shelf three has " + titleThree);
+    }
+}
+```
+Output:
+```
+Shelf one has The Three Body Problem
+Shelf three has Death's End
+```
+</details>
 
 ## Method Overloading
 **Method overloading** in Java allows us to define multiple methods with the *same name* but *different parameters*. \
@@ -288,6 +324,78 @@ There are 7 bugs, 2 of which are compile time errors.
 **Bonus part:** \
 At the end of the game, have the program tell the player the maximum amount of money they reached during the game.
 
+<details><summary>Solution Code</summary>
+
+```java
+import java.util.Scanner;
+
+public class GamblingSolution {
+    public static void main(String[] args) {
+        intro();
+        Scanner scanner = new Scanner(System.in);
+        int money = 10; // Start with $10
+        // Fix 1: money > 0 instead of money >= 0
+        while (money > 0) {
+            System.out.println("MONEY: $" + money);
+            System.out.print("Enter the stake, or 0 to quit: $");
+            int stake = scanner.nextInt();
+            // Check if the user wants to quit
+            if (stake == 0) {
+                // Fix 2: printed money instead of stake
+                System.out.println("You ended with $" + money + ".");
+                break;
+            }
+            // Check if the stake is valid
+            // Fix 3: Changed && to ||
+            if (stake < 0 || stake > money) {
+                System.out.println("Invalid stake.");
+                continue;
+            }
+            // User doubles their stake, or loses it
+            boolean won = randomBoolean();
+            if (won) {
+                // Fix 4: Update money instead of making a new variable
+                money += stake;
+                System.out.println("You won! (+$" + stake + ")");
+            } else {
+                // Fix 4: Update money instead of making a new variable
+                money -= stake;
+                System.out.println("You lost! (-$" + stake + ")");
+            }
+        }
+        
+        // Fix 5: added this if statement
+        if (money == 0) {
+        System.out.println("You're out of money!");
+        }
+    }
+
+    /** Returns true 50% of the time, false otherwise */
+    public static boolean randomBoolean() {
+        return Math.random() < 1.0 / 2; // Fix 6: changed 1 -> 1.0
+    }
+
+    public static void intro() {
+        System.out.println("Welcome!");
+        System.out.println("In this game, you start with $10.");
+        System.out.println("Every turn, you can bet some of your money (a stake)."); // Fix 7: added a semicolon here
+        System.out.println("There is a 50% it is doubled, and a 50% you lose it.");
+        System.out.println("You can quit at any time. The game also ends if you reach $0.");
+        System.out.println();
+    }
+}
+```
+
+Explanations:
+    - Fix 1: Since the game ends once `money` reaches `0`, `0` should not be included in the while loop's conditional.
+    - Fix 2: `stake` is what the user bets, not the amount of money they end with.
+    - Fix 3: `stake` is invalid if it is negative *or* if it is more money than the user has. It cannot be both.
+    - Fix 4: `stake` should be subtracted/added from our existing `money` variable. Declaring a new variable `money` is incorrect.
+    - Fix 5: The user can end the game without running out of money, so the print statement is sometimes innacurate. We need to check if they're out of money first.
+    - Fix 6: Remember integer division? `1 / 2` will evaluate to `0`, not `0.5`. This means `randomBoolean` will always return `false`, and the player will always lose.
+    - Fix 7: The third print statement needs a semicolon.
+</details>
+
 ### >Exercise: Factorial Sum
 Your cat Floofles heard about a cool mathematical formula that results in the constant $e \approx 2.71828$ . \
 Floofles wanted to test it out using a Java program. [`Formula.java`](Formula.java)
@@ -311,7 +419,12 @@ e = \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + ...
 Floofles wrote [`Formula.java`](Formula.java) to try to calculate the formula with decent precision. \
 But it was written in one go and is riddled with bugs! \
 Fix the program so it calculates $e$ to a few digits accurately, and the output says `It works!`. \
-(You might encounter a few concepts that you haven't learned before.)
+(This one is tough, but give it a shot! You might encounter a few concepts that you haven't learned before.)
+
+<details><summary>Hint: something to try</summary>
+
+Try printing `1 / factorial(n)`!
+</details>
 
 <details><summary>Hint: a relevant concept</summary>
 
@@ -322,6 +435,58 @@ For `double`s, they have a larger max value. Also, they do not overflow: when ex
 **Bonus challenge:** \
 Floofles wants even more accuracy with the formula result! \
 Make the result of the formula be precisely `Math.E` for all digits except the last one.
+
+<details><summary>Solution Code</summary>
+
+```java
+public class FormulaSolution {
+    public static void main(String[] args) {
+        // Upper limit of summation (can't calculate infinitely)
+        // A higher limit -> more terms in sequence -> more accurate (up to a point)
+        final int LIMIT = 10; // Fix 1: lower LIMIT
+
+        System.out.println("True value:     e = " + Math.E);
+        double calculated = formula(LIMIT);
+        System.out.println("Formula result: e = " + calculated);
+
+        double error = Math.abs(calculated - Math.E);
+        if (error < 0.0001) {
+            System.out.println("It works!");
+        } else {
+            System.out.println("It didn't work.");
+        }
+    }
+
+    /** Returns n! = 1 * 2 * 3 * ... * n, for n >= 0 */
+    public static int factorial(int n) {
+        int product = 1;
+        // Fixes 2 & 3: start i at 1 instead of 0; change i < n to i <= n
+        for (int i = 1; i <= n; i++) {
+            product *= i;
+        }
+        return product;
+    }
+
+    /** Returns the summation of 1 / 0! + 1 / 1! + 1 / 2! + ... + 1 / limit! */
+    public static double formula(int limit) {
+        double sum = 0.0;
+        // Fix 4: change n = 1 to n = 0
+        for (int n = 0; n <= limit; n++) {
+            // Fix 5: change 1 / factorial(n) to 1.0 / factorial(n)
+            sum += 1.0 / factorial(n);
+        }
+        return sum;
+    }
+}
+```
+
+Explanations:
+    - Fix 1: `LIMIT = 100` is too high and results in integer overflow. We have to lower it to get an accurate `e` value
+    - Fix 2: If we start `i` at `0`, it multiplies `product` by `0` and makes it `0` too. Starting at `1` lets `product` update correctly.
+    - Fix 3: `product` should be multiplied by `n` too!
+    - Fix 4: `1/0!` is also included in the calculation of `e`. Without it, our formula evaluates to `e - 1`.
+    - Fix 5: `1 / factorial(n)` will evaluate to `0` for every value of `factorial(n)` except for `1` (pesky integer division!) Changing `1` to `1.0` gives us the correct values.
+</details>
 
 ## Recap
 - To declare a method, list its modifiers, return type, method name, and then (in parentheses) parameters
