@@ -130,9 +130,9 @@ By using methods, we can *abstract* away all of the fine details and turn the in
 Methods should be a single, discrete action that is describable in a single phrase. Ideally, another programmer can understand and use it without knowing the internal implementation (*how* the method does it).
 
 ## >Exercise: Book Finder
+[`BookFinder.java`](BookFinder.java) \
 You're the sole librarian of a vast library with 4 whole shelves and a singular book on each shelf. In fact, visitors are having such a hard time finding the book they're looking for that you need a way for them to check which book is on what shelf through the library computer (or risk getting lost in your maze of a library!)
 
-[`BookFinder.java`](BookFinder.java)
 The four books you have are `The Three Body Problem` (Cixin Liu) on shelf 1, `The Dark Forest` (Cixin Liu) on shelf 2, `Death's End` (Cixin Liu) on shelf 3, and `The Wandering Earth` (Cixin Liu) on shelf 4.
 1. Create a method that takes in the shelf number as a parameter and returns the title of the book on that shelf.
 2. Declare the `main()` method and in it, call your method twice and print out each result; once for shelf 1, then for shelf 3.
@@ -302,8 +302,8 @@ Once you understand the bug, it shouldn't be too hard to implement a fix. \
 One can try fixing a bug without understanding it first, but this is not recommended.
 
 ### >Exercise: Gamblecore
-Your pet bird named Cat wrote a Java program for a simple gambling game, so he could gamble. Typical of Cat... \
-[`Gambling.java`](Gambling.java)
+[`Gambling.java`](Gambling.java) \
+Your pet bird named Cat wrote a Java program for a simple gambling game, so he could gamble. Typical of Cat...
 
 **Game rules:**
 - The player starts with $\$10$.
@@ -398,8 +398,9 @@ Explanations:
 </details>
 
 ### >Exercise: Factorial Sum
+[`Formula.java`](Formula.java) \
 Your cat Floofles heard about a cool mathematical formula that results in the constant $e \approx 2.71828$ . \
-Floofles wanted to test it out using a Java program. [`Formula.java`](Formula.java)
+Floofles wanted to test it out using a Java program.
 
 This formula involves the **factorial** function, mathematically denoted with $!$ after the number. \
 The factorial function $n!$, where $n$ is a nonnegative integer ($n\ge0$), is defined as the *product of all integers from* $1$ *to* $n$ . \
