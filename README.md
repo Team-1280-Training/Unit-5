@@ -402,7 +402,7 @@ Your cat Floofles heard about a cool mathematical formula that results in the co
 Floofles wanted to test it out using a Java program. [`Formula.java`](Formula.java)
 
 This formula involves the **factorial** function, mathematically denoted with $!$ after the number. \
-The factorial function $n!$, where $n$ is a nonnegative integer ($n\ge0$), is defined as the *product of all integers from $1$ to $n$* . \
+The factorial function $n!$, where $n$ is a nonnegative integer ($n\ge0$), is defined as the *product of all integers from* $1$ *to* $n$ . \
 For example, $5! = 1 * 2 * 3 * 4 * 5 = 120$ . Also note that $0! = 1$ and $1! = 1$ . \
 Note that the factorial function grows *massive* very quickly. For reference, $52!$ has 68 digits.
 
