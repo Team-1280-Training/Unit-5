@@ -41,7 +41,7 @@ public class Gambling {
         System.out.println("Welcome!");
         System.out.println("In this game, you start with $10.");
         System.out.println("Every turn, you can bet some of your money (a stake).")
-        System.out.println("There is a 50% it is doubled, and a 50% you lose it.");
+        System.out.println("There is a 50% chance it is doubled, and a 50% chance you lose it.");
         System.out.println("You can quit at any time. The game also ends if you reach $0.");
         System.out.println();
     }
