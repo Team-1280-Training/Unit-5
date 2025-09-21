@@ -330,7 +330,7 @@ At the end of the game, have the program tell the player the maximum amount of m
 ```java
 import java.util.Scanner;
 
-public class GamblingSolution {
+public class Gambling {
     public static void main(String[] args) {
         intro();
         Scanner scanner = new Scanner(System.in);
@@ -442,7 +442,7 @@ Make the result of the formula be precisely `Math.E` for all digits except the l
 <details><summary>Solution Code</summary>
 
 ```java
-public class FormulaSolution {
+public class Formula {
     public static void main(String[] args) {
         // Upper limit of summation (can't calculate infinitely)
         // A higher limit -> more terms in sequence -> more accurate (up to a point)
