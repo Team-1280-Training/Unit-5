@@ -524,7 +524,9 @@ In your `main` method, call these operations to prompt the user for their inform
 *Note: you should not create more than one `Scanner` in this program!* You may have to 'pass it around'.
 
 ## Feedback
-Please provide feedback if you have any.
+Please provide feedback if you have any. \
+Also, please give an estimate of how much time you spent on this unit.
+
 <details><summary>Possible feedback points</summary>
 
 - Confusing explanations
