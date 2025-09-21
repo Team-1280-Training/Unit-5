@@ -524,7 +524,7 @@ For some procedures, make sure the user's input is valid! Discard invalid inputs
 
 Then, make a procedure that greets the user personally and recommends them a movie of your choice based on the information they provided.
 
-In your `main` method, call these operations to prompt the user for their information and give them a movie recommendation. \
+Call these operations to prompt the user for their information and give them a movie recommendation. \
 *Note: you should not create more than one `Scanner` in this program!* You may have to 'pass it around'.
 
 ## Feedback
