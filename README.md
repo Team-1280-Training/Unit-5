@@ -141,7 +141,6 @@ The four books you have are `The Three Body Problem` (Cixin Liu) on shelf 1, `Th
 
 ```java
 public class BookFinder {
-
     static String findBook(int shelfNumber) {
         switch (shelfNumber) {
             case 1:
@@ -156,6 +155,7 @@ public class BookFinder {
                 return "Could not find your book!";
         }
     }
+
     public static void main(String[] args) {
         String titleOne = findBook(1);
         String titleThree = findBook(3);
