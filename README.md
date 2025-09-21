@@ -417,6 +417,8 @@ e = \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + ...
 ```math
 = \sum\limits_{n = 0}^{\infty} \frac{1}{n!}
 ```
+With more terms in the summation, the formula becomes more accurate and approaches $e$.
+
 Floofles wrote [`Formula.java`](Formula.java) to try to calculate the formula with decent precision. \
 But it was written in one go and is riddled with bugs! \
 Fix the program so it calculates $e$ to a few digits accurately, and the output says `It works!`. \
