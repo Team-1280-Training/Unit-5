@@ -335,19 +335,19 @@ public class GamblingSolution {
         intro();
         Scanner scanner = new Scanner(System.in);
         int money = 10; // Start with $10
-        // Fix 1: money > 0 instead of money >= 0
+        // Fix 1: Use money > 0 instead of money >= 0
         while (money > 0) {
             System.out.println("MONEY: $" + money);
             System.out.print("Enter the stake, or 0 to quit: $");
             int stake = scanner.nextInt();
             // Check if the user wants to quit
             if (stake == 0) {
-                // Fix 2: printed money instead of stake
+                // Fix 2: Print money instead of stake
                 System.out.println("You ended with $" + money + ".");
                 break;
             }
             // Check if the stake is valid
-            // Fix 3: Changed && to ||
+            // Fix 3: Change && to ||
             if (stake < 0 || stake > money) {
                 System.out.println("Invalid stake.");
                 continue;
@@ -364,16 +364,15 @@ public class GamblingSolution {
                 System.out.println("You lost! (-$" + stake + ")");
             }
         }
-        
-        // Fix 5: added this if statement
+        // Fix 5: Add the below if statement
         if (money == 0) {
-        System.out.println("You're out of money!");
+            System.out.println("You're out of money!");
         }
     }
 
     /** Returns true 50% of the time, false otherwise */
     public static boolean randomBoolean() {
-        return Math.random() < 1.0 / 2; // Fix 6: changed 1 -> 1.0
+        return Math.random() < 0.5; // Fix 6: changed 1 / 2 to 0.5
     }
 
     public static void intro() {
@@ -388,13 +387,14 @@ public class GamblingSolution {
 ```
 
 Explanations:
-    - Fix 1: Since the game ends once `money` reaches `0`, `0` should not be included in the while loop's conditional.
-    - Fix 2: `stake` is what the user bets, not the amount of money they end with.
-    - Fix 3: `stake` is invalid if it is negative *or* if it is more money than the user has. It cannot be both.
-    - Fix 4: `stake` should be subtracted/added from our existing `money` variable. Declaring a new variable `money` is incorrect.
-    - Fix 5: The user can end the game without running out of money, so the print statement is sometimes innacurate. We need to check if they're out of money first.
-    - Fix 6: Remember integer division? `1 / 2` will evaluate to `0`, not `0.5`. This means `randomBoolean` will always return `false`, and the player will always lose.
-    - Fix 7: The third print statement needs a semicolon.
+- Fix 1: Since the game ends once `money` reaches `0`, `0` should not be included in the while loop's conditional.
+- Fix 2: `stake` is what the user bets, not the amount of money they end with.
+- Fix 3: `stake` is invalid if it is negative *or* if it is more money than the user has. It cannot be both.
+- Fix 4: `stake` should be subtracted/added from our existing `money` variable. Declaring a new variable `money` is incorrect.
+- Fix 5: The user can end the game without running out of money, so the print statement is sometimes innacurate. We need to check if they're out of money first.
+- Fix 6: Remember integer division? `1 / 2` will evaluate to `0`, not `0.5`. This means `randomBoolean` will always return `false`, and the player will always lose.
+- Fix 7: The third print statement needs a semicolon.
+
 </details>
 
 ### >Exercise: Factorial Sum
@@ -444,7 +444,7 @@ public class FormulaSolution {
     public static void main(String[] args) {
         // Upper limit of summation (can't calculate infinitely)
         // A higher limit -> more terms in sequence -> more accurate (up to a point)
-        final int LIMIT = 10; // Fix 1: lower LIMIT
+        final int LIMIT = 10; // Fix 1: Lower LIMIT
 
         System.out.println("True value:     e = " + Math.E);
         double calculated = formula(LIMIT);
@@ -461,7 +461,8 @@ public class FormulaSolution {
     /** Returns n! = 1 * 2 * 3 * ... * n, for n >= 0 */
     public static int factorial(int n) {
         int product = 1;
-        // Fixes 2 & 3: start i at 1 instead of 0; change i < n to i <= n
+        // Fix 2: Start i at 1 instead of 0
+        // and Fix 3: Change i < n to i <= n
         for (int i = 1; i <= n; i++) {
             product *= i;
         }
@@ -471,9 +472,9 @@ public class FormulaSolution {
     /** Returns the summation of 1 / 0! + 1 / 1! + 1 / 2! + ... + 1 / limit! */
     public static double formula(int limit) {
         double sum = 0.0;
-        // Fix 4: change n = 1 to n = 0
+        // Fix 4: Change n = 1 to n = 0
         for (int n = 0; n <= limit; n++) {
-            // Fix 5: change 1 / factorial(n) to 1.0 / factorial(n)
+            // Fix 5: Change 1 / factorial(n) to 1.0 / factorial(n)
             sum += 1.0 / factorial(n);
         }
         return sum;
@@ -482,11 +483,12 @@ public class FormulaSolution {
 ```
 
 Explanations:
-    - Fix 1: `LIMIT = 100` is too high and results in integer overflow. We have to lower it to get an accurate `e` value
-    - Fix 2: If we start `i` at `0`, it multiplies `product` by `0` and makes it `0` too. Starting at `1` lets `product` update correctly.
-    - Fix 3: `product` should be multiplied by `n` too!
-    - Fix 4: `1/0!` is also included in the calculation of `e`. Without it, our formula evaluates to `e - 1`.
-    - Fix 5: `1 / factorial(n)` will evaluate to `0` for every value of `factorial(n)` except for `1` (pesky integer division!) Changing `1` to `1.0` gives us the correct values.
+- Fix 1: `LIMIT = 100` is too high and results in integer overflow. We have to lower it to get an accurate `e` value
+- Fix 2: If we start `i` at `0`, it multiplies `product` by `0` and makes it `0` too. Starting at `1` lets `product` update correctly.
+- Fix 3: `product` should be multiplied by `n` too!
+- Fix 4: `1 / 0!` should also be included in the calculation of `e`. Without it, our formula evaluates to `e - 1`.
+- Fix 5: `1 / factorial(n)` will evaluate to `0` for every value of `factorial(n)` except for `1` (pesky integer division)! Changing `1` to `1.0` gives us the correct values.
+
 </details>
 
 ## Recap
