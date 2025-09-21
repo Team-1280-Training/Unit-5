@@ -518,8 +518,10 @@ Create procedures in your program to retrieve the user's:
 - `name`
 - `age`
 
-Add a procedure of your own to get additional info that you find important. (cats or dogs? early bird or night owl? favorite candy?)
-For some procedures, make sure the user's input is valid! Discard invalid inputs and continue to prompt them until a valid input is provided. Note that in some cases, you won't be able to prevent the program crashing from an invalid input (such as the user entering something other than an integer when prompted for `age`.) \
+Add a procedure of your own to get additional info that you find important. (E.g. cats or dogs? early bird or night owl? favorite candy?)
+
+For some procedures, make sure the user's input is valid! Discard invalid inputs and continue to prompt them until a valid input is provided. Note that in some cases, you won't be able to prevent the program crashing from an invalid input (such as the user entering something other than an integer when prompted for `age`.)
+
 Then, make a procedure that greets the user personally and recommends them a movie of your choice based on the information they provided.
 
 In your `main` method, call these operations to prompt the user for their information and give them a movie recommendation. \
