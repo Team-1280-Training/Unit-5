@@ -512,7 +512,7 @@ Explanations:
 
 ## >>Project: Movie Recommendation
 Make a program that collects information based on user input and uses it to make a personalized movie recommendation.
-[`Information.java`](Information.java)
+[`Recommendation.java`](Recommendation.java)
 
 Create procedures in your program to retrieve the user's:
 - `name`
