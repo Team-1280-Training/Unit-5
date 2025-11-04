@@ -2,6 +2,7 @@
 
 ## Introduction
 **Methods**, also called **functions** or **procedures**, are blocks of code that can be executed with a single statement. They typically perform a specific action, and allow us to define code once but easily use it many times. \
+Methods allow us to reuse code and reduce code duplication. \
 Programs **call** or **invoke** methods to run the code inside.
 
 Methods may take in values called **arguments** as input, which assigns them to **parameters**, variables inside the method which get arguments. \
@@ -495,6 +496,7 @@ Explanations:
 </details>
 
 ## Recap
+- Methods are reusable user-created statements that may take inputs and may give an output
 - To declare a method, list its modifiers, return type, method name, and then (in parentheses) parameters
 - The `return` statement immediately exits the method, and, for non-`void` methods, gives a value
 - The `static` modifier is used for all methods in this unit
