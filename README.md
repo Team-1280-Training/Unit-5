@@ -503,7 +503,7 @@ Explanations:
 - The main method is called at the start of the program, and is written as `public static void main(String[] args) { ... }`
 - Call a method with the method name following by parentheses, and any necessary arguments inside, e.g. `add(1, 2)`
 - The method call produces a value if the return type isn't `void`
-- To access a method from a specific object, use `.`, e.g. for `String`'s `equal()` method, `name.equals("Bob")`
+- To access a method from a specific object, use `.`, e.g. for `String`'s `equals()` method, `name.equals("Bob")`
 - Method overloading is when multiple methods with the same name but a different set of parameters are declared
 - The three types of bugs are compile time errors, runtime errors, and logic errors (in order of increasing difficulty)
 - Error messages (compile time or runtime errors) consist of an exception type, short description, and a stack trace that pinpoints the origin
